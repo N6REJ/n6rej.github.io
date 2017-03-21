@@ -1,10 +1,10 @@
-Hi, I'm Bear known as N6REJ in the ham radio circles. 
+Hi, I'm Bear known as N6REJ in the ham radio circles.  
 
-I started with @github due to my love of Joomla! & working with the Joomla bug squad in hammering out issues within the code. 
+I started with @github due to my love of Joomla! & working with the Joomla bug squad in hammering out issues within the code.  
 
-Through the years I've started using github for all my coding projects now & have come to enjoy it. 
+Through the years I've started using github for all my coding projects now & have come to enjoy it.  
 
-I work alot with  [Abivia](http://abivia.com "Abivia") &  [AM Graphix](https://am-graphix.com/ "AM Graphix").
+I work alot with  [Abivia](http://abivia.com "Abivia") &  [AM Graphix](https://am-graphix.com/ "AM Graphix").  
 
 My favorite tools, organizations and projects are...
 
