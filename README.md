@@ -7,8 +7,8 @@ Through the years I've started using github for all my coding projects now & hav
 I work alot with  <a href="https://abivia.net"><img src="https://my.abivia.net/assets/img/logo.jpg" /></a><a href="https://am-graphix.com"><img src="https://am-graphix.com/images/sitegraphix/AMGLogo2012.png" style="padding-top: 24px;height=75px; width: 250px;" /></a>
 <h3>Software, tools & projects I enjoy:</h3>
 <p style="width: 100%; height: 100px; float: left; text-align: left;">
-<img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="auto" />
-<img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/phpstorm.png" height="75px" width="auto"/>
+![Joomla](https://cdn.joomla.org/images/Joomla_logo.png)
+![phpstorm](https://github.com/N6REJ/n6rej.github.io/blob/master/phpstorm.png)
 <img style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
 <img style="float: left; max-width="100px;" src="https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg" height="75px" width="auto" />
 </p>
