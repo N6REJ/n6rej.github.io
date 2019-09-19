@@ -7,13 +7,13 @@ Through the years I've started using github for all my coding projects now & hav
 I work alot with  [Abivia](http://abivia.com "Abivia") &  [AM Graphix](https://am-graphix.com/ "AM Graphix").  
 
 <h3>Software, tools & projects I enjoy:</h3>
-<p style="width: 100%; height: 100px; max-height: 100px; float: left; text-align: left;">
-<img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="89px" width="auto" />
-<img style="float: left;" src="https://am-graphix.com/images/sitegraphix/AMGLogo2012.png" height="89px" width: "250px" />
-<img style="float: left;" src="https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg" height="89px" width="auto" />
-  <img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/phpstorm.png" height="89px" width="auto"/>
-<img style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="89px" width="auto"/>
-  </p>
+<p style="width: 100%; height: 100px; float: left; text-align: left;">
+<img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="auto" />
+<img style="float: left;" src="https://am-graphix.com/images/sitegraphix/AMGLogo2012.png" height="75px" width: "250px" />
+<img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/phpstorm.png" height="75px" width="auto"/>
+<img style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
+<img style="float: left; max-width="100px;" src="https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg" height="75px" width="auto" />
+</p>
 
 I firmly believe in ***FOSS*** 
 I love helping people and finding bugs & then fixing them in things that I use.
