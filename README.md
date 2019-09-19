@@ -12,9 +12,9 @@ I work alot with  [Abivia](http://abivia.com "Abivia") &  [AM Graphix](https://a
 <img style="float: left;" src="https://am-graphix.com/images/sitegraphix/AMGLogo2012.png" height="89px" width: "250px" />
 <img style="float: left;" src="https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg" height="89px" width="auto" />
   </p>
-  <p style="width: 100%; height: 100px; max-height: 100px; float: left; text-align: left;">
-<img style="float: left;" src="https://netbeans.org/images_www/v7/design/logo_netbeans_red.png" height="89px"width="auto" />
+<p style="width: 100%; height: 100px; max-height: 100px; float: left; text-align: left;">
 <img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/phpstorm.png" height="89px" width="auto"/>
+<img style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="89px" width="auto"/>
 </p>
 
 
