@@ -4,8 +4,7 @@ I started with @github due to my love of Joomla! & working with the Joomla bug s
 
 Through the years I've started using github for all my coding projects now & have come to enjoy it.  
 
-I work alot with  ![Abivia](https://my.abivia.net/assets/img/logo.jpg) <a style="height=75px; width: 250px; margin-bottom: -24px;" href="https://am-graphix.com">![Am Graphix](https://am-graphix.com/images/sitegraphix/AMGLogo2012.png)</a>
-
+I work alot with  ![Abivia](https://my.abivia.net/assets/img/logo.jpg) <p style="margin-bottom: -24px !important;"><a style="height=75px; width: 250px;" href="https://am-graphix.com">![Am Graphix](https://am-graphix.com/images/sitegraphix/AMGLogo2012.png)</a></p>
 <h3>Software, tools & projects I enjoy:</h3>
 <p style="width: 100%; height: 100px; float: left; text-align: left;">
 <img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="auto" />
