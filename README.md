@@ -9,7 +9,7 @@ I work alot with  <a href="https://abivia.net"><img src="https://my.abivia.net/a
 
 <div display: inline-block; float: left;>
 <img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="75px"/>
-<img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/phpstorm.png" height="75px" width="auto"/>
+<img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/images/phpstorm.png" height="75px" width="auto"/>
 <img style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
 <img style="float: left; max-width="100px;" src="https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg" height="75px" width="auto" />
 </div>
