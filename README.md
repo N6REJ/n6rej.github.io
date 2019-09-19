@@ -8,8 +8,8 @@ I work alot with  [Abivia](http://abivia.com "Abivia") &  [AM Graphix](https://a
 
 <h3>Software, tools & projects I enjoy:</h3>
 <p style="width: 100%; height: 100px; float: left; text-align: left;">
-<img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="auto" />
 <img style="float: left;" src="https://am-graphix.com/images/sitegraphix/AMGLogo2012.png" height="75px" width: "250px" />
+<img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="auto" />
 <img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/phpstorm.png" height="75px" width="auto"/>
 <img style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
 <img style="float: left; max-width="100px;" src="https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg" height="75px" width="auto" />
