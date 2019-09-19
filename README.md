@@ -8,11 +8,11 @@ I work alot with  <a href="https://abivia.net"><img src="https://my.abivia.net/a
 <h3>Software, tools & projects I enjoy:</h3>
 
 <div style="float: left;">
-<img style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="75px"/>
-<img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/images/phpstorm.png" height="75px" width="auto"/>
-<img style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
-<img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/images/bootstrap.png" height="75px" width="auto"/>
-<img style="float: left;" src="https://github.com/N6REJ/n6rej.github.io/blob/master/images/browser-stack.png" height="75px" width="auto"/>
+<img alt="joomla" style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="75px"/>
+<img alt="phpstorm" style="float: left;" src="http://n6rej.github.io/images/phpstorm.png" height="75px" width="auto"/>
+<img alt="netbeans" style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
+<img alt="bootstrap" style="float: left;" src="http://n6rej.github.io/images/bootstrap.png" height="75px" width="auto"/>
+<img alt="browser-stack" style="float: left;" src="http://n6rej.github.io/images/browser-stack.png" height="75px" width="auto"/>
 </div>
 
 
