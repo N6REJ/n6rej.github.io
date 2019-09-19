@@ -15,7 +15,7 @@ My favorite tools, organizations and projects are...
 
 ![NetBeans](https://netbeans.org/images_www/v7/design/logo_netbeans_red.png)
 
-![Bootstrap](https://lh3.googleusercontent.com/-7NyxmdySDOo/WNGVHiAJ2GI/AAAAAAAAiT8/t_GR17h1N40ZNhoCX9AJHy8E6Ib-CMPdgCLcB/s0/bootstrap-logo.jpg "bootstrap-logo.jpg")
+
 
 I firmly believe in ***FOSS*** 
 I love helping people and finding bugs & then fixing them in things that I use.
