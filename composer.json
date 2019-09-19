@@ -1,0 +1,33 @@
+{
+    "name": "N6REJ/Composer-Default",
+    "type": "project",
+	"description": "Bear's default composer 1.8.5 files",
+	"version": "1.8.5",
+	"time": "2019-09-19",
+	"homepage": "https://github.com/N6REJ",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+        {
+            "name": "Troy T. Hall",
+            "email": "programming@hallhome.us",
+            "homepage": "https://github.com/N6REJ",
+            "role": "Developer"
+        }
+	],
+    "config": {
+        "cache-dir": "C:/neard/tmp/composer"
+    },
+	"require-dev": {
+		"squizlabs/php_codesniffer": "~2.8",
+        "joomla/cms-coding-standards": "~2.0.0-alpha2@dev",
+        "joomla/coding-standards": "~3.0@dev",
+        "joomla/mediawiki": "dev-master",
+        "friendsofphp/php-cs-fixer": "~2.12",
+        "joomla-projects/joomla-browser": "~4.0@dev",
+        "joomla-projects/robo-joomla": "dev-develop",
+        "joomla-projects/selenium-server-standalone": "3.14.0",
+        "codeception/codeception": "~3.0",
+        "consolidation/robo": "^1.0.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+    }
+}
