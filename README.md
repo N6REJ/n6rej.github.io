@@ -8,13 +8,12 @@ I work alot with  <a href="https://abivia.net"><img src="https://my.abivia.net/a
 <h3>Software, tools & projects I enjoy:</h3>
 
 <div style="float: left;">
-<img alt="joomla" style="float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="75px"/>
-<img alt="phpstorm" style="float: left;" src="http://n6rej.github.io/images/phpstorm.png" height="75px" width="auto"/>
-<img alt="netbeans" style="float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
-<img alt="bootstrap" style="float: left;" src="http://n6rej.github.io/images/bootstrap.png" height="75px" width="auto"/>
-<img alt="browser-stack" style="float: left;" src="http://n6rej.github.io/images/browser-stack.png" height="75px" width="auto"/>
-</div>
-
+<img alt="joomla" style="padding-left: 8px; padding-right: 8px; float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="75px"/>
+<img alt="phpstorm" style="padding-left: 8px; padding-right: 8px; float: left;" src="http://n6rej.github.io/images/phpstorm.png" height="75px" width="auto"/>
+<img alt="netbeans" style="padding-left: 8px; padding-right: 8px; float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
+<img alt="bootstrap" style="padding-left: 8px; padding-right: 8px; float: left;" src="http://n6rej.github.io/images/bootstrap.png" height="75px" width="auto"/>
+<img alt="browser-stack" style="padding-left: 8px; padding-right: 8px; float: left;" src="http://n6rej.github.io/images/browser-stack.png" height="75px" width="auto"/>
+</div><br />
 
 I firmly believe in ***FOSS*** 
 I love helping people and finding bugs & then fixing them in things that I use.
