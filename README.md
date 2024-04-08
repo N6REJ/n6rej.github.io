@@ -16,6 +16,7 @@ I work alot with
 <img alt="phpstorm" style="padding-left: 5px; padding-right: 5px; float: left;" src="http://n6rej.github.io/images/phpstorm.png" height="75px" width="auto"/>
 <img alt="bootstrap" style="padding-left: 5px; padding-right: 5px; float: left;" src="http://n6rej.github.io/images/bootstrap.png" height="75px" width="auto"/>
 <img alt="browser-stack" style="padding-left: 5px; padding-right: 5px; float: left;" src="http://n6rej.github.io/images/browser-stack.png" height="75px" width="auto"/>
+<img alt="bearsampp" style="padding-left: 5px; padding-right: 5px; float: left;" src="http://n6rej.github.io/images/browser-stack.png" height="75px" width="auto"/>
 </div>
 <div class="clearfix"></div>
 
