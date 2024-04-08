@@ -14,7 +14,6 @@ I work alot with
 <div style="padding-left: 5px; padding-right: 5px; float: left;">
 <img alt="joomla" style="padding-left: 5px; padding-right: 5px; float: left;" src="https://cdn.joomla.org/images/Joomla_logo.png" height="75px" width="75px"/>
 <img alt="phpstorm" style="padding-left: 5px; padding-right: 5px; float: left;" src="http://n6rej.github.io/images/phpstorm.png" height="75px" width="auto"/>
-<img alt="netbeans" style="padding-left: 5px; padding-right: 5px; float: left;" src="https://netbeans.apache.org/images/apache-netbeans.svg" height="75px" width="auto"/>
 <img alt="bootstrap" style="padding-left: 5px; padding-right: 5px; float: left;" src="http://n6rej.github.io/images/bootstrap.png" height="75px" width="auto"/>
 <img alt="browser-stack" style="padding-left: 5px; padding-right: 5px; float: left;" src="http://n6rej.github.io/images/browser-stack.png" height="75px" width="auto"/>
 </div>
