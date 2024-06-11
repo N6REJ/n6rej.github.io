@@ -1,13 +1,13 @@
 Hi, I'm Bear known as N6REJ in the ham radio circles.  
 
-I started with @github due to my love of Joomla! & working with the Joomla bug squad in hammering out issues within the code.  
+I started with github due to my love of Joomla! & working with the Joomla bug squad in hammering out issues within the code.  
 
 Through the years I've started using github for all my coding projects now & have come to enjoy it.  
 
 I work alot with
  <br />
  <span style="height: 80px;">
- <a href="https://abivia.net"><img src="https://my.abivia.net/assets/img/logo.jpg" /></a><a href="https://am-graphix.com"><img src="http://n6rej.github.io/images/AMGLogo2019-justlogo500.jpg" height="80" width:="auto" /></a>
+ <a href="https://abivia.net"><img src="https://my.abivia.net/assets/img/logo.jpg" /></a><a href="https://am-graphix.com"><img src="http://n6rej.github.io/images/AMGLogo2019-justlogo500.jpg" /></a>
  </span>
 <h3>Software, tools & projects I enjoy:</h3>
 
@@ -25,3 +25,4 @@ I work alot with
 I firmly believe in ***FOSS*** 
 I love helping people and finding bugs & then fixing them in things that I use.
 I'm also a avid photographer, lover of country living, & Christian.
+Founder of <a href="http://bearsampp.com">Bearsampp</a>
