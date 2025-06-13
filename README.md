@@ -7,7 +7,7 @@ Through the years I've started using github for all my coding projects now & hav
 I work alot with
  <br />
  <span style="height: 80px;">
- <a href="https://abivia.net"><img src="https://my.abivia.net/assets/img/logo.jpg" /></a><a href="https://am-graphix.com"><img src="http://n6rej.github.io/images/AMGLogo2019-justlogo500.jpg" height="80px" /></a>
+ <a href="https://am-graphix.com"><img src="http://n6rej.github.io/images/AMGLogo2019-justlogo500.jpg" height="80px" /></a>
  </span>
 <h3>Software, tools & projects I enjoy:</h3>
 
