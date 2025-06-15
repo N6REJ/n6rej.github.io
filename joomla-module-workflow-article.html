@@ -1,0 +1,111 @@
+<h1>Automating Joomla Module Packaging and Release with GitHub Actions</h1>
+
+<h2>Overview</h2>
+<p>
+  This article explains how to use a universal <b>GitHub Actions</b> workflow to automate the packaging and release of your Joomla module. The workflow handles versioning, copyright updates, changelog generation, packaging, and release creation. By configuring a few variables, you can adapt this workflow to any Joomla module project.
+</p>
+
+<h2>What Does the Workflow Do?</h2>
+<ul>
+  <li><b>Triggers on PR merge or manual dispatch:</b> Runs when a pull request is merged into <code>main</code> or when manually triggered.</li>
+  <li><b>Versioning:</b> Automatically generates a version number based on the date and existing tags.</li>
+  <li><b>Copyright and Date Updates:</b> Updates copyright years and creation dates in your XML, PHP, INI, and CSS files.</li>
+  <li><b>Changelog Generation:</b> Compiles a changelog from commit messages.</li>
+  <li><b>Packaging:</b> Collects all relevant files and directories into a package folder and creates a ZIP archive.</li>
+  <li><b>Release Creation:</b> Publishes a new release on GitHub with the ZIP and changelog.</li>
+  <li><b>Optional Artifacts:</b> Can include a directory tree file and favicon if configured.</li>
+</ul>
+
+<h2>How to Use This Workflow</h2>
+<ol>
+  <li>
+    <b>Copy the Workflow File:</b><br>
+    Place the <code>.yml</code> file in <code>.github/workflows/</code> in your Joomla module repository.
+  </li>
+  <li>
+    <b>Configure the Variables:</b><br>
+    At the top of the file, you'll find an <code>env:</code> section. Update these variables to match your module:
+    <pre><code>env:
+  AUTHOR: "YourName"
+  REPO: "YourOrg/your_module"
+  MODULE_NAME: "mod_yourmodule"
+  MODULE_XML: "mod_yourmodule.xml"
+  COPYRIGHT_HOLDER: "Your Name (YourHandle)"
+  COPYRIGHT_START_YEAR: "2023"
+  PHP_VERSION: "8.1"
+  MODULE_TOKEN: "GH_PAT"
+  CHANGELOG_FILE: "CHANGELOG.md"
+  HELPER_FILE: "helper.php"
+  LICENSE_FILE: "License.txt"
+  FAVICON_FILE: "favicon.ico" # Leave blank to skip
+  UPDATES_XML_FILE: "updates.xml"
+  CSS_DIR: "css"
+  JS_DIR: "js"
+  TMPL_DIR: "tmpl"
+  LANGUAGE_DIR: "language"
+  PACKAGE_DIR: "package"
+  DIR_TREE_FILE: "directory-structure.txt" # Set blank to skip
+</code></pre>
+    <ul>
+      <li><b>FAVICON_FILE:</b> If you do not want to include a favicon, set this to an empty string.</li>
+      <li><b>DIR_TREE_FILE:</b> If you do not want a directory tree file, set this to an empty string.</li>
+    </ul>
+  </li>
+  <li>
+    <b>Prepare Your Module Files:</b><br>
+    Ensure your main PHP, XML, helper, language, CSS, JS, and template files are present and named according to the variables above.<br>
+    The workflow expects standard Joomla file headers for copyright.
+  </li>
+  <li>
+    <b>Push Changes or Trigger Manually:</b><br>
+    Merge a pull request into <code>main</code> or trigger the workflow manually from the GitHub Actions tab.
+  </li>
+  <li>
+    <b>Check the Release:</b><br>
+    After the workflow runs, a new release will be created on GitHub with your packaged module and changelog.
+  </li>
+</ol>
+
+<h2>Copyright Header Format</h2>
+<p>The workflow updates copyright headers in your files. Use the following format:</p>
+<b>In PHP files:</b>
+<pre><code>/**
+ * @copyright Copyright (C) 2023-2024 Your Name (YourHandle)
+ * @license   GNU General Public License version 2 or later; see LICENSE.txt
+ */
+</code></pre>
+<b>In XML files:</b>
+<pre><code>&lt;copyright&gt;Copyright (C) 2023-2024 Your Name (YourHandle)&lt;/copyright&gt;
+</code></pre>
+<b>In INI files:</b>
+<pre><code>; Copyright (C) 2023-2024 Your Name (YourHandle)
+</code></pre>
+<b>In CSS files:</b>
+<pre><code>/* Copyright (C) 2023-2024 Your Name (YourHandle) */
+</code></pre>
+<p>The workflow will automatically update the year range based on the current year and the <code>COPYRIGHT_START_YEAR</code> variable.</p>
+
+<h2>Customization and Optional Features</h2>
+<ul>
+  <li><b>Favicon:</b> If you do not want to include a favicon, set <code>FAVICON_FILE</code> to blank.</li>
+  <li><b>Directory Tree:</b> If you do not want a directory tree file, set <code>DIR_TREE_FILE</code> to blank.</li>
+  <li><b>Changelog:</b> The changelog is generated from commit messages. Use clear, conventional commit messages for best results.</li>
+</ul>
+
+<h2>Security and Tokens</h2>
+<ul>
+  <li><b>MODULE_TOKEN:</b> This should be the name of a GitHub secret containing a Personal Access Token with <code>repo</code> permissions. The default is <code>GH_PAT</code>.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<ul>
+  <li><b>File Not Found Errors:</b> Ensure all files and directories referenced in the <code>env</code> section exist in your repository.</li>
+  <li><b>Copyright Not Updating:</b> Make sure your file headers match the expected format.</li>
+  <li><b>Workflow Fails:</b> Check the Actions tab for logs and error messages.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>
+  This workflow streamlines the Joomla module release process, ensuring consistency and saving time. By adjusting a few variables, you can use it for any module project. For further customization, review the workflow steps and adapt as needed.
+</p>
+<p><b>Happy coding and automating your Joomla releases!</b></p>

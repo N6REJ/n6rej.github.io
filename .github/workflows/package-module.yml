@@ -15,7 +15,20 @@ on:
 #   MODULE_NAME: Module folder and file prefix (e.g. mod_example)
 #   MODULE_XML:  Main XML file (e.g. mod_example.xml)
 #   COPYRIGHT_HOLDER: Copyright string (e.g. YourName (YourHandle))
+#   COPYRIGHT_START_YEAR: Copyright start year (e.g. 2025)
 #   PHP_VERSION: PHP version to use (e.g. 8.1)
+#   MODULE_TOKEN: Your token secret name (default: GH_PAT)
+#   CHANGELOG_FILE: Changelog filename (default: CHANGELOG.md)
+#   HELPER_FILE: Helper PHP file (default: helper.php)
+#   LICENSE_FILE: License file (default: License.txt)
+#   FAVICON_FILE: Favicon file (default: favicon.ico, can be blank to skip)
+#   UPDATES_XML_FILE: Updates XML file (default: updates.xml)
+#   CSS_DIR: CSS directory (default: css)
+#   JS_DIR: JS directory (default: js)
+#   TMPL_DIR: Template directory (default: tmpl)
+#   LANGUAGE_DIR: Language directory (default: language)
+#   PACKAGE_DIR: Package output directory (default: package)
+#   DIR_TREE_FILE: Directory tree output file, used as an additional file in release listing.  (default: directory-structure.txt, can be blank to skip)
 # =============================
 env:
   AUTHOR: "N6REJ"
@@ -23,8 +36,20 @@ env:
   MODULE_NAME: "mod_bears_aichatbot"
   MODULE_XML: "mod_bears_aichatbot.xml"
   COPYRIGHT_HOLDER: "BearLeeAble (N6REJ)"
+  COPYRIGHT_START_YEAR: "2025"
   PHP_VERSION: "8.1"
   MODULE_TOKEN: "GH_PAT"  # Set your token secret name here (default: GH_PAT)
+  CHANGELOG_FILE: "CHANGELOG.md"
+  HELPER_FILE: "helper.php"
+  LICENSE_FILE: "License.txt"
+  FAVICON_FILE: "favicon.ico"
+  UPDATES_XML_FILE: "updates.xml"
+  CSS_DIR: "css"
+  JS_DIR: "js"
+  TMPL_DIR: "tmpl"
+  LANGUAGE_DIR: "language"
+  PACKAGE_DIR: "package"
+  DIR_TREE_FILE: "directory-structure.txt"
 
 jobs:
   update-version-and-release:
@@ -102,8 +127,8 @@ jobs:
             cp "$XML_FILE" "${XML_FILE}.bak"
             sed -i "s|<version>.*</version>|<version>${{ steps.set_version.outputs.version }}</version>|g" "$XML_FILE"
             sed -i "s|<creationDate>.*</creationDate>|<creationDate>${{ steps.set_version.outputs.creation_date }}</creationDate>|g" "$XML_FILE"
-            if [ "${{ steps.set_version.outputs.current_year }}" -gt "2025" ]; then
-              sed -i "s|Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|Copyright (C) 2025 - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$XML_FILE"
+            if [ "${{ steps.set_version.outputs.current_year }}" -gt "${{ env.COPYRIGHT_START_YEAR }}" ]; then
+              sed -i "s|Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|Copyright (C) ${{ env.COPYRIGHT_START_YEAR }} - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$XML_FILE"
             else
               sed -i "s|Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|Copyright (C) ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$XML_FILE"
             fi
@@ -113,7 +138,7 @@ jobs:
           fi
       - name: Cleanup backup files
         run: |
-          rm -f ${{ env.MODULE_XML }}.bak updates.xml.bak CHANGELOG.md.bak || true
+          rm -f ${{ env.MODULE_XML }}.bak updates.xml.bak ${{ env.CHANGELOG_FILE }}.bak || true
       - name: Update PHP file version
         run: |
           find . -name "*.php" | while read -r PHP_FILE; do
@@ -139,9 +164,9 @@ jobs:
         run: |
           find . -name "*.ini" -o -name "*.sys.ini" | while read -r LANG_FILE; do
             if [ -f "$LANG_FILE" ]; then
-              if [ "${{ steps.set_version.outputs.current_year }}" -gt "2025" ]; then
-                sed -i "s|; Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|; Copyright (C) 2025 - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$LANG_FILE"
-                sed -i "s|; Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|; Copyright (C) 2025 - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$LANG_FILE"
+              if [ "${{ steps.set_version.outputs.current_year }}" -gt "${{ env.COPYRIGHT_START_YEAR }}" ]; then
+                sed -i "s|; Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|; Copyright (C) ${{ env.COPYRIGHT_START_YEAR }} - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$LANG_FILE"
+                sed -i "s|; Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|; Copyright (C) ${{ env.COPYRIGHT_START_YEAR }} - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$LANG_FILE"
               else
                 sed -i "s|; Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|; Copyright (C) ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$LANG_FILE"
                 sed -i "s|; Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}|; Copyright (C) ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$LANG_FILE"
@@ -153,11 +178,11 @@ jobs:
           find . -name "*.css" | while read -r CSS_FILE; do
             if [ -f "$CSS_FILE" ]; then
               if grep -q "Copyright (C)" "$CSS_FILE"; then
-                if [ "${{ steps.set_version.outputs.current_year }}" -gt "2025" ]; then
-                  sed -i "s|/\* Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }} \*/|/* Copyright (C) 2025 - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }} */|g" "$CSS_FILE"
-                  sed -i "s|/\* Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }} \*/|/* Copyright (C) 2025 - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }} */|g" "$CSS_FILE"
-                  sed -i "s| \* Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}| * Copyright (C) 2025 - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$CSS_FILE"
-                  sed -i "s| \* Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}| * Copyright (C) 2025 - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$CSS_FILE"
+                if [ "${{ steps.set_version.outputs.current_year }}" -gt "${{ env.COPYRIGHT_START_YEAR }}" ]; then
+                  sed -i "s|/\* Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }} \*/|/* Copyright (C) ${{ env.COPYRIGHT_START_YEAR }} - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }} */|g" "$CSS_FILE"
+                  sed -i "s|/\* Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }} \*/|/* Copyright (C) ${{ env.COPYRIGHT_START_YEAR }} - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }} */|g" "$CSS_FILE"
+                  sed -i "s| \* Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}| * Copyright (C) ${{ env.COPYRIGHT_START_YEAR }} - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$CSS_FILE"
+                  sed -i "s| \* Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }}| * Copyright (C) ${{ env.COPYRIGHT_START_YEAR }} - ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }}|g" "$CSS_FILE"
                 else
                   sed -i "s|/\* Copyright (C) [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }} \*/|/* Copyright (C) ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }} */|g" "$CSS_FILE"
                   sed -i "s|/\* Copyright (C) [0-9]\{4\} - [0-9]\{4\} ${{ env.COPYRIGHT_HOLDER }} \*/|/* Copyright (C) ${{ steps.set_version.outputs.current_year }} ${{ env.COPYRIGHT_HOLDER }} */|g" "$CSS_FILE"
@@ -203,21 +228,21 @@ jobs:
               CHANGED="$CHANGED\n* $COMMIT_MSG ([${COMMIT_HASH}](https://github.com/${{ github.repository }}/commit/${COMMIT_HASH}))"
             fi
           done <<< "$COMMITS"
-          echo "# Changelog" > CHANGELOG.md
-          echo "" >> CHANGELOG.md
-          echo "All notable changes to this project will be documented in this file." >> CHANGELOG.md
-          echo "" >> CHANGELOG.md
-          echo "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)," >> CHANGELOG.md
-          echo "and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)." >> CHANGELOG.md
-          echo "" >> CHANGELOG.md
-          echo "## [${{ steps.set_version.outputs.version }}] - $CURRENT_DATE" >> CHANGELOG.md
-          echo "" >> CHANGELOG.md
-          if [ ! -z "$ADDED" ]; then echo "### Added" >> CHANGELOG.md; echo -e "$ADDED" >> CHANGELOG.md; echo "" >> CHANGELOG.md; fi
-          if [ ! -z "$CHANGED" ]; then echo "### Changed" >> CHANGELOG.md; echo -e "$CHANGED" >> CHANGELOG.md; echo "" >> CHANGELOG.md; fi
-          if [ ! -z "$FIXED" ]; then echo "### Fixed" >> CHANGELOG.md; echo -e "$FIXED" >> CHANGELOG.md; echo "" >> CHANGELOG.md; fi
-          if [ ! -z "$REMOVED" ]; then echo "### Removed" >> CHANGELOG.md; echo -e "$REMOVED" >> CHANGELOG.md; echo "" >> CHANGELOG.md; fi
-          if [ ! -z "$SECURITY" ]; then echo "### Security" >> CHANGELOG.md; echo -e "$SECURITY" >> CHANGELOG.md; echo "" >> CHANGELOG.md; fi
-          if [ -f "CHANGELOG.md.bak" ]; then tail -n +8 "CHANGELOG.md.bak" >> CHANGELOG.md; fi
+          echo "# Changelog" > ${{ env.CHANGELOG_FILE }}
+          echo "" >> ${{ env.CHANGELOG_FILE }}
+          echo "All notable changes to this project will be documented in this file." >> ${{ env.CHANGELOG_FILE }}
+          echo "" >> ${{ env.CHANGELOG_FILE }}
+          echo "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)," >> ${{ env.CHANGELOG_FILE }}
+          echo "and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)." >> ${{ env.CHANGELOG_FILE }}
+          echo "" >> ${{ env.CHANGELOG_FILE }}
+          echo "## [${{ steps.set_version.outputs.version }}] - $CURRENT_DATE" >> ${{ env.CHANGELOG_FILE }}
+          echo "" >> ${{ env.CHANGELOG_FILE }}
+          if [ ! -z "$ADDED" ]; then echo "### Added" >> ${{ env.CHANGELOG_FILE }}; echo -e "$ADDED" >> ${{ env.CHANGELOG_FILE }}; echo "" >> ${{ env.CHANGELOG_FILE }}; fi
+          if [ ! -z "$CHANGED" ]; then echo "### Changed" >> ${{ env.CHANGELOG_FILE }}; echo -e "$CHANGED" >> ${{ env.CHANGELOG_FILE }}; echo "" >> ${{ env.CHANGELOG_FILE }}; fi
+          if [ ! -z "$FIXED" ]; then echo "### Fixed" >> ${{ env.CHANGELOG_FILE }}; echo -e "$FIXED" >> ${{ env.CHANGELOG_FILE }}; echo "" >> ${{ env.CHANGELOG_FILE }}; fi
+          if [ ! -z "$REMOVED" ]; then echo "### Removed" >> ${{ env.CHANGELOG_FILE }}; echo -e "$REMOVED" >> ${{ env.CHANGELOG_FILE }}; echo "" >> ${{ env.CHANGELOG_FILE }}; fi
+          if [ ! -z "$SECURITY" ]; then echo "### Security" >> ${{ env.CHANGELOG_FILE }}; echo -e "$SECURITY" >> ${{ env.CHANGELOG_FILE }}; echo "" >> ${{ env.CHANGELOG_FILE }}; fi
+          if [ -f "${{ env.CHANGELOG_FILE }}.bak" ]; then tail -n +8 "${{ env.CHANGELOG_FILE }}.bak" >> ${{ env.CHANGELOG_FILE }}; fi
           CHANGELOG_OUTPUT=""
           if [ ! -z "$ADDED" ]; then CHANGELOG_OUTPUT="${CHANGELOG_OUTPUT}### Added\n${ADDED}\n\n"; fi
           if [ ! -z "$CHANGED" ]; then CHANGELOG_OUTPUT="${CHANGELOG_OUTPUT}### Changed\n${CHANGED}\n\n"; fi
@@ -227,11 +252,11 @@ jobs:
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
           echo -e "$CHANGELOG_OUTPUT" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-          cat CHANGELOG.md
+          cat ${{ env.CHANGELOG_FILE }}
       - name: Backup existing changelog
         if: steps.context.outputs.is_pr_merge == 'true' || steps.context.outputs.is_manual == 'true'
         run: |
-          if [ -f "CHANGELOG.md" ]; then cp CHANGELOG.md CHANGELOG.md.bak; fi
+          if [ -f "${{ env.CHANGELOG_FILE }}" ]; then cp ${{ env.CHANGELOG_FILE }} ${{ env.CHANGELOG_FILE }}.bak; fi
       - name: Commit changes to PR branch
         if: steps.context.outputs.is_pr_update == 'true'
         run: |
@@ -260,7 +285,7 @@ jobs:
           cp ${{ env.MODULE_XML }} package/${{ env.MODULE_NAME }}/
           cp helper.php package/${{ env.MODULE_NAME }}/
           if [ -f "License.txt" ]; then cp License.txt package/${{ env.MODULE_NAME }}/; fi
-          if [ -f "favicon.ico" ]; then cp favicon.ico package/${{ env.MODULE_NAME }}/; fi
+          if [ -n "${{ env.FAVICON_FILE }}" ] && [ -f "${{ env.FAVICON_FILE }}" ]; then cp ${{ env.FAVICON_FILE }} package/${{ env.MODULE_NAME }}/; fi
           if [ -f "CHANGELOG.md" ]; then cp CHANGELOG.md package/${{ env.MODULE_NAME }}/; fi
           if [ -d "css" ]; then cp -r css package/${{ env.MODULE_NAME }}/; fi
           if [ -d "js" ]; then cp -r js package/${{ env.MODULE_NAME }}/; fi
@@ -270,8 +295,10 @@ jobs:
       - name: Generate directory tree
         if: steps.context.outputs.is_pr_merge == 'true' || steps.context.outputs.is_manual == 'true'
         run: |
-          apt-get update && apt-get install -y tree
-          tree package/${{ env.MODULE_NAME }} > package/directory-structure.txt
+          if [ -n "${{ env.DIR_TREE_FILE }}" ]; then
+            apt-get update && apt-get install -y tree
+            tree package/${{ env.MODULE_NAME }} > package/${{ env.DIR_TREE_FILE }}
+          fi
       - name: Create ZIP archive
         if: steps.context.outputs.is_pr_merge == 'true' || steps.context.outputs.is_manual == 'true'
         run: |
@@ -286,8 +313,8 @@ jobs:
           tag_name: ${{ steps.set_version.outputs.version }}
           name: Bears AI Chatbot ${{ steps.set_version.outputs.version }}
           files: |
-            package/${{ env.MODULE_NAME }}_${{ steps.set_version.outputs.version }}.zip
-            package/directory-structure.txt
+            ${{ env.PACKAGE_DIR }}/${{ env.MODULE_NAME }}_${{ steps.set_version.outputs.version }}.zip
+            ${{ env.PACKAGE_DIR }}/${{ env.DIR_TREE_FILE }}
           draft: false
           prerelease: false
           body: |
@@ -297,29 +324,29 @@ jobs:
             - Access the artifact from the Actions tab of this workflow run
             ## Changelog
             ${{ steps.changelog.outputs.changelog }}
-            [View full changelog](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md)
+            [View full changelog](https://github.com/${{ github.repository }}/blob/main/${{ env.CHANGELOG_FILE }})
         env:
           GH_PAT: ${{ secrets[env.MODULE_TOKEN] }}
       - name: Update Joomla update server XML
         if: steps.context.outputs.is_pr_merge == 'true' || steps.context.outputs.is_manual == 'true'
         run: |
-          UPDATES_XML="updates.xml"
+          UPDATES_XML="${{ env.UPDATES_XML_FILE }}"
           if [ -f "$UPDATES_XML" ]; then
             cp "$UPDATES_XML" "${UPDATES_XML}.bak"
             DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/${{ steps.set_version.outputs.version }}/${{ env.MODULE_NAME }}_${{ steps.set_version.outputs.version }}.zip"
             sed -i "s|<version>.*</version>|<version>${{ steps.set_version.outputs.version }}</version>|g" "$UPDATES_XML"
             sed -i "s|<downloadurl type=\"full\" format=\"zip\">.*</downloadurl>|<downloadurl type=\"full\" format=\"zip\">$DOWNLOAD_URL</downloadurl>|g" "$UPDATES_XML"
-            echo "Updated updates.xml file with new version and download URL"
+            echo "Updated $UPDATES_XML file with new version and download URL"
             cat "$UPDATES_XML"
             git config --global user.name "GitHub Actions"
             git config --global user.email "actions@github.com"
-            if git diff --exit-code; then echo "No changes to commit in updates.xml"; else git add "$UPDATES_XML"; git commit -m "Update updates.xml for version ${{ steps.set_version.outputs.version }}"; git push origin main; fi
+            if git diff --exit-code; then echo "No changes to commit in $UPDATES_XML"; else git add "$UPDATES_XML"; git commit -m "Update $UPDATES_XML for version ${{ steps.set_version.outputs.version }}"; git push origin main; fi
           else
-            echo "::warning::updates.xml file not found in repository"
+            echo "::warning::${{ env.UPDATES_XML_FILE }} file not found in repository"
           fi
       - name: Final cleanup of backup files
         run: |
-          rm -f ${{ env.MODULE_XML }}.bak updates.xml.bak CHANGELOG.md.bak || true
+          rm -f ${{ env.MODULE_XML }}.bak ${{ env.UPDATES_XML_FILE }}.bak ${{ env.CHANGELOG_FILE }}.bak || true
       - name: Upload to GitHub Artifacts
         if: steps.context.outputs.is_pr_merge == 'true' || steps.context.outputs.is_manual == 'true'
         id: upload_artifact
