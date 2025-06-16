@@ -9,6 +9,14 @@ https://github.com/.../mod.../releases/tag/2025.06.13.1
 
 All that is required for you to use it is to deposit the package-module.yml file, in your .github/workflows folder https://github.com/.../.github/workflows/package-module.yml and change just a few lines of code at the top of the file, which is well notated.
 
+## 📄 Extended Documentation
+
+For a full guide to all Joomla extension packager workflows (modules, plugins, components, and multi-extension packages), see the [Joomla Packager Workflows Documentation](joomla-module-workflow-article.html). This page covers:
+- How each workflow works
+- How to configure and use them
+- Environment variables and customization
+- Best practices and troubleshooting
+
 ![](http://n6rej.github.io/images/setup.png)
 I hope this helps others. I'm the creator so ofc I find it fantastic. Contact me if you have any questions or issues.
 
