@@ -17,7 +17,6 @@ For a full guide to all Joomla extension packager workflows (modules, plugins, c
 - Environment variables and customization
 - Best practices and troubleshooting
 
-![](http://n6rej.github.io/images/setup.png)
 I hope this helps others. I'm the creator so ofc I find it fantastic. Contact me if you have any questions or issues.
 
 ![joomla](https://cdn.joomla.org/images/Joomla_logo.png) ![phpstorm](http://n6rej.github.io/images/phpstorm.png) ![bootstrap](http://n6rej.github.io/images/bootstrap.png) ![browser-stack](http://n6rej.github.io/images/browser-stack.png) ![bearsampp](https://github.com/N6REJ/n6rej.github.io/assets/1850089/a86be0cd-a463-4107-9ec3-a6b8756776b1)
