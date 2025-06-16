@@ -113,6 +113,52 @@ fi
   <li>Review the workflow logs for troubleshooting if a build fails.</li>
 </ul>
 
+<h2>Example Release Output</h2>
+<p>
+  See a real example of what the packager creates: <a href="https://github.com/N6REJ/joomla-module-example/releases/tag/2025.06.13.1" target="_blank">Example Release Output</a>
+</p>
+
+<h2>Example Workflow YAML</h2>
+<pre><code>name: Joomla Module Packager
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Joomla Module Packaging
+        uses: N6REJ/joomla-module-packager@v1
+        with:
+          module_name: "mod_example"
+          module_xml: "mod_example.xml"
+          copyright_holder: "Your Name (YourHandle)"
+          php_version: "8.1"
+</code></pre>
+
+<h2>Example Directory Structure</h2>
+<pre><code>my-joomla-module/
+├── .github/
+│   └── workflows/
+│       └── module-packager.yml
+├── mod_example.php
+├── mod_example.xml
+├── helper.php
+├── tmpl/
+│   └── default.php
+├── language/
+│   └── en-GB.mod_example.ini
+└── ...
+</code></pre>
+
+<h2>Sample Release Result</h2>
+<ul>
+  <li>ZIP file: <code>mod_example-2025.06.13.1.zip</code></li>
+  <li>Changelog: <code>CHANGELOG.md</code></li>
+  <li>Release notes auto-generated from commit messages</li>
+</ul>
+
 <h2>Conclusion</h2>
 <p>
   With these workflows, you can automate the packaging and release of any Joomla extension type, or a package containing multiple types. Adjust the variables as needed, and let GitHub Actions handle the rest!
