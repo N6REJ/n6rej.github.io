@@ -5,7 +5,7 @@ Hi, I'm Bear known as N6REJ in the ham radio circles. I started with github due 
 
 Hi folks. For those that create Joomla! modules I've created an automatic packager. You can see what it creates here
 
-https://github.com/.../mod.../releases/tag/2025.06.13.1
+![](https://github.com/.../mod.../releases/tag/2025.06.13.1)
 
 All that is required for you to use it is to deposit the package-module.yml file, in your .github/workflows folder https://github.com/.../.github/workflows/package-module.yml and change just a few lines of code at the top of the file, which is well notated.
 
