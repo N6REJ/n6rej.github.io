@@ -1,6 +1,10 @@
-theme: jekyll-theme-hacker
-title: [Bear's Git page]
-description: [About me]
-navigation:
+theme: minima
+title: Bear's Git page
+description: About me
+
+# Navigation for minima theme
+nav:
+  - title: "Home"
+    url: /
   - title: "Documentation"
-    url: /packager
+    url: /joomla-module-workflow-article.html
