@@ -14,8 +14,7 @@ All that is required for you to use it is to deposit the package-module.yml file
 
 ## 📄 Extended Documentation
 
-For a full guide to all Joomla extension packager workflows (modules, plugins, components, and multi-extension packages), see the [Joomla Packager Workflows Documentation](
-joomla-module-workflow-article.html). This page covers:
+For a full guide to all Joomla extension packager workflows (modules, plugins, components, and multi-extension packages), see the [Joomla Packager Workflows Documentation](https://hallhome.us/software/packager-documentation). This page covers:
 - How each workflow works
 - How to configure and use them
 - Environment variables and customization
