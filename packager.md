@@ -1,0 +1,124 @@
+---
+layout: default
+title: Documentation
+---
+
+<h1>Universal Joomla Extension Packaging with GitHub Actions</h1>
+
+<h2>Overview</h2>
+<p>
+  This documentation explains how to use specialized GitHub Actions workflows to automate packaging and release for Joomla modules, plugins, components, and extension packages. Each workflow is tailored for its extension type, and the package workflow can bundle any combination of modules, plugins, and components.
+</p>
+
+<h2>Key Workflow Steps</h2>
+<ul>
+  <li><b>Version and Date Generation:</b> Each workflow generates a unique version number and creation date for your release, based on the current date and existing tags.</li>
+  <li><b>Automated File Updates:</b> The workflows update version, creation date, and copyright in all relevant files (XML, PHP, INI, CSS, etc.) before packaging.</li>
+  <li><b>Changelog Generation:</b> A changelog is automatically generated from commit messages, following the Keep a Changelog format.</li>
+  <li><b>Backup and Cleanup:</b> The workflows back up files before making changes and clean up backup files after packaging.</li>
+  <li><b>Error Handling:</b> If a required file is missing, the workflow will fail with a clear error message.</li>
+  <li><b>Conditional Packaging:</b> The package workflow checks if each extension type is specified and only includes those present.</li>
+</ul>
+
+<h2>Available Workflows</h2>
+<ul>
+  <li><b>Module Packaging:</b> <code>module-packager.yml</code></li>
+  <li><b>Plugin Packaging:</b> <code>plugin-packager.yml</code></li>
+  <li><b>Component Packaging:</b> <code>component-packager.yml</code></li>
+  <li><b>Package (Multi-Extension):</b> <code>package-packager.yml</code></li>
+</ul>
+<p><b>Note:</b> If you have multiple individual packager workflows (e.g., module, plugin, and component packagers) in your <code>.github/workflows/</code> directory, each workflow will run independently and create its own separate ZIP and release for its extension type. The <b>package</b> workflow (<code>package-packager.yml</code>) is used to bundle multiple extension types into a single ZIP and release.</p>
+
+<h2>How to Use</h2>
+<ol>
+  <li>
+    <b>Copy the Workflow File:</b><br>
+    Place the appropriate <code>.yml</code> file in <code>.github/workflows/</code> in your repository. There are dedicated workflows for modules (<code>module-packager.yml</code>), plugins, components, and multi-extension packages.
+  </li>
+  <li>
+    <b>Configure the Variables:</b><br>
+    At the top of the file, update the <code>env:</code> section. Only set variables for the extension types you want to include.<br>
+    <pre><code>env:
+  # For modules
+  MODULE_NAME: "mod_example"
+  MODULE_XML: "mod_example.xml"
+  # For plugins
+  PLUGIN_GROUP: "system"
+  PLUGIN_NAME: "myplugin"
+  PLUGIN_XML: "plg_system_myplugin.xml"
+  # For components
+  COMPONENT_NAME: "com_example"
+  COMPONENT_XML: "com_example.xml"
+  # For packages
+  PACKAGE_NAME: "pkg_myextensions"
+  PACKAGE_XML: "pkg_myextensions.xml"
+  # Shared variables
+  COPYRIGHT_HOLDER: "Your Name (YourHandle)"
+  COPYRIGHT_START_YEAR: "2025"
+  PHP_VERSION: "8.1"
+  MODULE_TOKEN: "GH_PAT"
+  CHANGELOG_FILE: "CHANGELOG.md"
+  # ...other variables as needed
+</code></pre>
+    <ul>
+      <li>Leave any variable blank to skip that extension type in the package workflow.</li>
+    </ul>
+  </li>
+  <li>
+    <b>Prepare Your Extension Files:</b><br>
+    Ensure your files and folders match the variable names and structure.
+  </li>
+  <li>
+    <b>Push Changes or Trigger Manually:</b><br>
+    Merge a pull request or trigger the workflow from the GitHub Actions tab.
+  </li>
+  <li>
+    <b>Check the Release:</b><br>
+    The workflow will create a ZIP and a GitHub release with your extension(s).
+  </li>
+</ol>
+
+<h2>Conditional Packaging in the Package Workflow</h2>
+<p>
+  The package workflow checks each extension type variable. If a variable is blank, that extension type is skipped. This allows you to create packages with any combination of modules, plugins, and components.
+</p>
+<pre><code>if [ -n "${{ env.MODULE_NAME }}" ]; then
+  # Copy module files
+fi
+if [ -n "${{ env.PLUGIN_NAME }}" ]; then
+  # Copy plugin files
+fi
+if [ -n "${{ env.COMPONENT_NAME }}" ]; then
+  # Copy component files
+fi
+</code></pre>
+
+<h2>Copyright Header Format</h2>
+<p>Use the following format in your files:</p>
+<b>PHP:</b>
+<pre><code>/**
+ * @copyright Copyright (C) 2025-2026 Your Name (YourHandle)
+ * @license   GNU General Public License version 2 or later; see LICENSE.txt
+ */
+</code></pre>
+<b>XML:</b>
+<pre><code>&lt;copyright&gt;Copyright (C) 2025-2026 Your Name (YourHandle)&lt;/copyright&gt;
+</code></pre>
+<b>INI:</b>
+<pre><code>; Copyright (C) 2025-2026 Your Name (YourHandle)
+</code></pre>
+<b>CSS:</b>
+<pre><code>/* Copyright (C) 2025-2026 Your Name (YourHandle) */
+</code></pre>
+
+<h2>Tips and Best Practices</h2>
+<ul>
+  <li>Use clear, conventional commit messages for changelog generation.</li>
+  <li>Keep your file and directory names consistent with the variables.</li>
+  <li>Review the workflow logs for troubleshooting if a build fails.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>
+  With these workflows, you can automate the packaging and release of any Joomla extension type, or a package containing multiple types. Adjust the variables as needed, and let GitHub Actions handle the rest!
+</p>

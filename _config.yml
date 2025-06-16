@@ -1,3 +1,6 @@
 theme: jekyll-theme-hacker
 title: [Bear's Git page]
 description: [About me]
+navigation:
+  - title: "Documentation"
+    url: /packager
