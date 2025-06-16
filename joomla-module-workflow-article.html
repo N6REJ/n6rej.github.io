@@ -29,22 +29,60 @@
 
 <h2 id="examples">Examples</h2>
 <h3>Sample Workflow YAML</h3>
-<pre><code>name: Joomla Module Packager
+<pre><code>
+  name: Package and Release Bears AI Chatbot Module
+
 on:
-  push:
-    branches: [ main ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Joomla Module Packaging
-        uses: N6REJ/joomla-module-packager@v1
-        with:
-          module_name: "mod_example"
-          module_xml: "mod_example.xml"
-          copyright_holder: "Your Name (YourHandle)"
-          php_version: "8.1"
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  workflow_dispatch:
+
+# =============================
+# Universal Joomla Module Packaging Workflow
+# To use for your own module, change the variables below:
+#   AUTHOR: Your name or handle
+#   REPO:   Your repo path (org/repo)
+#   MODULE_NAME: Module folder and file prefix (e.g. mod_example)
+#   MODULE_XML:  Main XML file (e.g. mod_example.xml)
+#   COPYRIGHT_HOLDER: Copyright string (e.g. YourName (YourHandle))
+#   COPYRIGHT_START_YEAR: Copyright start year (e.g. 2025)
+#   PHP_VERSION: PHP version to use (e.g. 8.1)
+#   MODULE_TOKEN: Your token secret name (default: GH_PAT)
+#   CHANGELOG_FILE: Changelog filename (default: CHANGELOG.md)
+#   HELPER_FILE: Helper PHP file (default: helper.php)
+#   LICENSE_FILE: License file (default: License.txt)
+#   FAVICON_FILE: Favicon file (default: favicon.ico, can be blank to skip)
+#   UPDATES_XML_FILE: Updates XML file (default: updates.xml)
+#   CSS_DIR: CSS directory (default: css)
+#   JS_DIR: JS directory (default: js)
+#   TMPL_DIR: Template directory (default: tmpl)
+#   LANGUAGE_DIR: Language directory (default: language)
+#   PACKAGE_DIR: Package output directory (default: package)
+#   DIR_TREE_FILE: Directory tree output file, used as an additional file in release listing.  (default: directory-structure.txt, can be blank to skip)
+# =============================
+env:
+  AUTHOR: "N6REJ"
+  REPO: "N6REJ/mod_bears_aichatbot"
+  MODULE_NAME: "mod_bears_aichatbot"
+  MODULE_XML: "mod_bears_aichatbot.xml"
+  COPYRIGHT_HOLDER: "BearLeeAble (N6REJ)"
+  COPYRIGHT_START_YEAR: "2025"
+  PHP_VERSION: "8.1"
+  MODULE_TOKEN: "GH_PAT"  # Set your token secret name here (default: GH_PAT)
+  CHANGELOG_FILE: "CHANGELOG.md"
+  HELPER_FILE: "helper.php"
+  LICENSE_FILE: "License.txt"
+  FAVICON_FILE: "favicon.ico"
+  UPDATES_XML_FILE: "updates.xml"
+  CSS_DIR: "css"
+  JS_DIR: "js"
+  TMPL_DIR: "tmpl"
+  LANGUAGE_DIR: "language"
+  PACKAGE_DIR: "package"
+  DIR_TREE_FILE: "directory-structure.txt"
+
 </code></pre>
 
 <h3>Example Directory Structure</h3>
