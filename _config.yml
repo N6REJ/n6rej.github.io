@@ -3,7 +3,7 @@ title: Bear's Git page
 description: About me
 
 # Navigation for minima theme
-nav:
+nav_pages:
   - title: "Home"
     url: /
   - title: Packager Documentation
