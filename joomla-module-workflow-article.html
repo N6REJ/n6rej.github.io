@@ -1,124 +1,34 @@
-<h1>Universal Joomla Extension Packaging with GitHub Actions</h1>
+<h1>Joomla Extension Packager Workflows Documentation</h1>
 
-<h2>Overview</h2>
-<p>
-  This documentation explains how to use specialized GitHub Actions workflows to automate packaging and release for Joomla modules, plugins, components, and extension packages. Each workflow is tailored for its extension type, and the package workflow can bundle any combination of modules, plugins, and components.
-</p>
+<p>This page provides a comprehensive guide to the automated packaging workflows for Joomla modules, plugins, components, and multi-extension packages using GitHub Actions. Each workflow is tailored for its extension type, and the package workflow can bundle any combination of modules, plugins, and components.</p>
 
-<h2>Key Workflow Steps</h2>
+<h2>Table of Contents</h2>
 <ul>
-  <li><b>Version and Date Generation:</b> Each workflow generates a unique version number and creation date for your release, based on the current date and existing tags.</li>
-  <li><b>Automated File Updates:</b> The workflows update version, creation date, and copyright in all relevant files (XML, PHP, INI, CSS, etc.) before packaging.</li>
-  <li><b>Changelog Generation:</b> A changelog is automatically generated from commit messages, following the Keep a Changelog format.</li>
-  <li><b>Backup and Cleanup:</b> The workflows back up files before making changes and clean up backup files after packaging.</li>
-  <li><b>Error Handling:</b> If a required file is missing, the workflow will fail with a clear error message.</li>
-  <li><b>Conditional Packaging:</b> The package workflow checks if each extension type is specified and only includes those present.</li>
+  <li><a href="#workflows">Available Workflows & Quick Links</a></li>
+  <li><a href="#usage">How to Use</a></li>
+  <li><a href="#examples">Examples</a></li>
+  <li><a href="#best-practices">Tips and Best Practices</a></li>
+  <li><a href="#faq">FAQ</a></li>
 </ul>
 
-<h2>Available Workflows</h2>
+<h2 id="workflows">Available Workflows & Quick Links</h2>
 <ul>
-  <li><b>Module Packaging:</b> <code>module-packager.yml</code></li>
-  <li><b>Plugin Packaging:</b> <code>plugin-packager.yml</code></li>
-  <li><b>Component Packaging:</b> <code>component-packager.yml</code></li>
-  <li><b>Package (Multi-Extension):</b> <code>package-packager.yml</code></li>
+  <li><b>Module Packaging:</b> <a href="/.github/workflows/module-packager.yml" target="_blank">module-packager.yml</a></li>
+  <li><b>Plugin Packaging:</b> <a href="/.github/workflows/plugin-packager.yml" target="_blank">plugin-packager.yml</a></li>
+  <li><b>Component Packaging:</b> <a href="/.github/workflows/component-packager.yml" target="_blank">component-packager.yml</a></li>
+  <li><b>Package (Multi-Extension):</b> <a href="/.github/workflows/package-packager.yml" target="_blank">package-packager.yml</a></li>
 </ul>
-<p><b>Note:</b> If you have multiple individual packager workflows (e.g., module, plugin, and component packagers) in your <code>.github/workflows/</code> directory, each workflow will run independently and create its own separate ZIP and release for its extension type. The <b>package</b> workflow (<code>package-packager.yml</code>) is used to bundle multiple extension types into a single ZIP and release.</p>
 
-<h2>How to Use</h2>
+<h2 id="usage">How to Use</h2>
 <ol>
-  <li>
-    <b>Copy the Workflow File:</b><br>
-    Place the appropriate <code>.yml</code> file in <code>.github/workflows/</code> in your repository. There are dedicated workflows for modules (<code>module-packager.yml</code>), plugins, components, and multi-extension packages.
-  </li>
-  <li>
-    <b>Configure the Variables:</b><br>
-    At the top of the file, update the <code>env:</code> section. Only set variables for the extension types you want to include.<br>
-    <pre><code>env:
-  # For modules
-  MODULE_NAME: "mod_example"
-  MODULE_XML: "mod_example.xml"
-  # For plugins
-  PLUGIN_GROUP: "system"
-  PLUGIN_NAME: "myplugin"
-  PLUGIN_XML: "plg_system_myplugin.xml"
-  # For components
-  COMPONENT_NAME: "com_example"
-  COMPONENT_XML: "com_example.xml"
-  # For packages
-  PACKAGE_NAME: "pkg_myextensions"
-  PACKAGE_XML: "pkg_myextensions.xml"
-  # Shared variables
-  COPYRIGHT_HOLDER: "Your Name (YourHandle)"
-  COPYRIGHT_START_YEAR: "2025"
-  PHP_VERSION: "8.1"
-  MODULE_TOKEN: "GH_PAT"
-  CHANGELOG_FILE: "CHANGELOG.md"
-  # ...other variables as needed
-</code></pre>
-    <ul>
-      <li>Leave any variable blank to skip that extension type in the package workflow.</li>
-    </ul>
-  </li>
-  <li>
-    <b>Prepare Your Extension Files:</b><br>
-    Ensure your files and folders match the variable names and structure.
-  </li>
-  <li>
-    <b>Push Changes or Trigger Manually:</b><br>
-    Merge a pull request or trigger the workflow from the GitHub Actions tab.
-  </li>
-  <li>
-    <b>Check the Release:</b><br>
-    The workflow will create a ZIP and a GitHub release with your extension(s).
-  </li>
+  <li>Copy the desired <code>.yml</code> workflow file from above into your repository's <code>.github/workflows/</code> directory.</li>
+  <li>Edit the <code>env:</code> section at the top of the workflow file to match your extension's details.</li>
+  <li>Push your changes or trigger the workflow manually from the GitHub Actions tab.</li>
+  <li>Check the Releases section for your packaged extension ZIP and changelog.</li>
 </ol>
 
-<h2>Conditional Packaging in the Package Workflow</h2>
-<p>
-  The package workflow checks each extension type variable. If a variable is blank, that extension type is skipped. This allows you to create packages with any combination of modules, plugins, and components.
-</p>
-<pre><code>if [ -n "${{ env.MODULE_NAME }}" ]; then
-  # Copy module files
-fi
-if [ -n "${{ env.PLUGIN_NAME }}" ]; then
-  # Copy plugin files
-fi
-if [ -n "${{ env.COMPONENT_NAME }}" ]; then
-  # Copy component files
-fi
-</code></pre>
-
-<h2>Copyright Header Format</h2>
-<p>Use the following format in your files:</p>
-<b>PHP:</b>
-<pre><code>/**
- * @copyright Copyright (C) 2025-2026 Your Name (YourHandle)
- * @license   GNU General Public License version 2 or later; see LICENSE.txt
- */
-</code></pre>
-<b>XML:</b>
-<pre><code>&lt;copyright&gt;Copyright (C) 2025-2026 Your Name (YourHandle)&lt;/copyright&gt;
-</code></pre>
-<b>INI:</b>
-<pre><code>; Copyright (C) 2025-2026 Your Name (YourHandle)
-</code></pre>
-<b>CSS:</b>
-<pre><code>/* Copyright (C) 2025-2026 Your Name (YourHandle) */
-</code></pre>
-
-<h2>Tips and Best Practices</h2>
-<ul>
-  <li>Use clear, conventional commit messages for changelog generation.</li>
-  <li>Keep your file and directory names consistent with the variables.</li>
-  <li>Review the workflow logs for troubleshooting if a build fails.</li>
-</ul>
-
-<h2>Example Release Output</h2>
-<p>
-  See a real example of what the packager creates: <a href="https://github.com/N6REJ/joomla-module-example/releases/tag/2025.06.13.1" target="_blank">Example Release Output</a>
-</p>
-
-<h2>Example Workflow YAML</h2>
+<h2 id="examples">Examples</h2>
+<h3>Sample Workflow YAML</h3>
 <pre><code>name: Joomla Module Packager
 on:
   push:
@@ -137,7 +47,7 @@ jobs:
           php_version: "8.1"
 </code></pre>
 
-<h2>Example Directory Structure</h2>
+<h3>Example Directory Structure</h3>
 <pre><code>my-joomla-module/
 ├── .github/
 │   └── workflows/
@@ -152,14 +62,27 @@ jobs:
 └── ...
 </code></pre>
 
-<h2>Sample Release Result</h2>
+<h3>Sample Release Result</h3>
 <ul>
   <li>ZIP file: <code>mod_example-2025.06.13.1.zip</code></li>
   <li>Changelog: <code>CHANGELOG.md</code></li>
   <li>Release notes auto-generated from commit messages</li>
 </ul>
 
-<h2>Conclusion</h2>
-<p>
-  With these workflows, you can automate the packaging and release of any Joomla extension type, or a package containing multiple types. Adjust the variables as needed, and let GitHub Actions handle the rest!
-</p>
+<h2 id="best-practices">Tips and Best Practices</h2>
+<ul>
+  <li>Use clear, conventional commit messages for changelog generation.</li>
+  <li>Keep your file and directory names consistent with the variables in your workflow.</li>
+  <li>Review the workflow logs for troubleshooting if a build fails.</li>
+  <li>Use the <b>package</b> workflow to bundle multiple extension types into a single ZIP and release.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<ul>
+  <li><b>Q: Can I use more than one packager workflow?</b><br>A: Yes! Each workflow (module, plugin, component, package) can be used independently or together. The <b>package</b> workflow is for multi-extension releases.</li>
+  <li><b>Q: What if I only want to package a module?</b><br>A: Use only the <a href="/.github/workflows/module-packager.yml" target="_blank">module-packager.yml</a> workflow.</li>
+  <li><b>Q: Where do I find my packaged ZIP?</b><br>A: In the <b>Releases</b> section of your repository after the workflow completes.</li>
+</ul>
+
+<hr>
+<p>For more details, see the <a href="/README.md">project README</a> or <a href="https://github.com/N6REJ/n6rej.github.io">view on GitHub</a>.</p>
