@@ -5,13 +5,13 @@ Hi, I'm Bear known as N6REJ in the ham radio circles. I started with github due 
 
 Hi folks. For those that create Joomla! modules I've created an automatic packager. Full documentation is available here:
 
-[Packager Workflows Documentation](joomla-module-workflow-article.html)
+[Example package output](https://github.com/N6REJ/mod_bears_pricing_tables/releases/tag/2025.06.13.1)
 
 All that is required for you to use it is to deposit the package-module.yml file, in your .github/workflows folder https://github.com/.../.github/workflows/package-module.yml and change just a few lines of code at the top of the file, which is well notated.
 
 ## 📄 Extended Documentation
 
-For a full guide to all Joomla extension packager workflows (modules, plugins, components, and multi-extension packages), see the [Joomla Packager Workflows Documentation](joomla-module-workflow-article.html). This page covers:
+For a full guide to all Joomla extension packager workflows (modules, plugins, components, and multi-extension packages), see the documentation This page covers:
 - How each workflow works
 - How to configure and use them
 - Environment variables and customization
