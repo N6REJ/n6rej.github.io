@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="MessDetectorOptionsConfiguration">
+    <option name="transferred" value="true" />
+  </component>
+  <component name="PHPCSFixerOptionsConfiguration">
+    <option name="transferred" value="true" />
+  </component>
+  <component name="PHPCodeSnifferOptionsConfiguration">
+    <option name="codingStandard" value="MySource" />
+    <option name="highlightLevel" value="WARNING" />
+    <option name="installedPaths" value="C:\neard\tools\composer\composer1.8.5\vendor\squizlabs\php_codesniffer\bin" />
+    <option name="useInstalledPaths" value="true" />
+    <option name="transferred" value="true" />
+  </component>
   <component name="PhpCSFixer">
     <phpcsfixer_settings>
       <PhpCSFixerConfiguration tool_path="$PROJECT_DIR$/../../../tools/composer/composer1.8.5/vendor/bin/php-cs-fixer" />
@@ -113,5 +126,11 @@
       <path value="$PROJECT_DIR$/../../../tools/composer/composer1.8.5/vendor/joomla/coding-standards" />
       <path value="$PROJECT_DIR$/../../../tools/composer/composer1.8.5/vendor/joomla/compat" />
     </include_path>
+  </component>
+  <component name="PhpStanOptionsConfiguration">
+    <option name="transferred" value="true" />
+  </component>
+  <component name="PsalmOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
 </project>
