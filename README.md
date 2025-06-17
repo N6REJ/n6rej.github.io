@@ -24,6 +24,8 @@ For a full guide to all Joomla extension packager workflows (modules, plugins, c
 
 I hope this helps others. I'm the creator so ofc I find it fantastic. Contact me if you have any questions or issues.
 
+There are a pair of files.  One in .github/workflows/sync and another in .github/sync.yml  These will automatically copy your -packager.yml to whatever repo is listed.  This is simply to keep your packager(s) in sync
+
 ![joomla](https://cdn.joomla.org/images/Joomla_logo.png) ![phpstorm](http://n6rej.github.io/images/phpstorm.png) ![bootstrap](http://n6rej.github.io/images/bootstrap.png) ![browser-stack](http://n6rej.github.io/images/browser-stack.png) ![bearsampp](https://github.com/N6REJ/n6rej.github.io/assets/1850089/a86be0cd-a463-4107-9ec3-a6b8756776b1)
 
 I firmly believe in \*\*\*FOSS\*\*\* I love helping people and finding bugs & then fixing them in things that I use. I'm also a avid photographer, lover of country living, & Christian.
