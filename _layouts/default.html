@@ -1,0 +1,29 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {%- if site.minima -%}
+    {{ site.minima.head }}
+  {%- endif -%}
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        {% for item in site.nav %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+        <li style="margin-left:2em;"><a href="https://github.com/N6REJ/n6rej.github.io" target="_blank" style="font-weight:bold; color:#24292e; background:#f6f8fa; border:1px solid #d1d5da; border-radius:4px; padding:4px 10px; text-decoration:none;">View on GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {{ content }}
+  </main>
+</body>
+</html>
