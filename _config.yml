@@ -4,6 +4,8 @@ description: About me
 
 # Navigation for minima theme
 nav:
+  - title: "Home page"
+    url: http://git.hallhome.us
   - title: "Home"
     url: /
   - title: "Packager Documentation"
