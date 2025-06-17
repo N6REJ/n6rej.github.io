@@ -8,7 +8,7 @@ Hi, I'm Bear known as N6REJ in the ham radio circles. I started with github due 
 
 ### Software, tools & projects I enjoy:
 
-Hi folks. For those that create Joomla! modules I've created an automatic packager. You can see what it creates here
+For those that create Joomla! modules I've created an automatic packager. You can see what it creates here
 
 ![](https://github.com/N6REJ/mod_bears_pricing_tables/releases)
 
