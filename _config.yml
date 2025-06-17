@@ -1,6 +1,6 @@
-theme: jekyll-theme-merlot
+theme: jekyll-theme-hacker
 title: [Bear's Git page]
-description: [About me]
+description: [Joomla Packager Documentation]
 navigation:
-  - title: "Documentation"
-    url: /packager
+  - title: "Packager Documentation"
+    url: https://git.hallhome.us/joomla-module-workflow-article.html
