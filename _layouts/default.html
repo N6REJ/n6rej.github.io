@@ -1,0 +1,12 @@
+{% include head-custom.html %}
+{% seo %}
+<!-- Removed ./ from title -->
+{{ site.title | default: site.github.repository_name }}
+{{ site.description | default: site.github.project_tagline }}
+{% if site.show_downloads %}
+  Download as .zip
+  Download as .tar.gz
+{% endif %}
+View on GitHub
+<a href="/joomla-module-workflow-article.html" class="btn">View Packager Documentation</a>
+{{ content }}
