@@ -1,11 +1,31 @@
-{% include head-custom.html %}
-{% seo %}
-{{ site.title | default: site.github.repository_name }}
-{{ site.description | default: site.github.project_tagline }}
-{% if site.show_downloads %}
-  Download as .zip
-  Download as .tar.gz
-{% endif %}
-View on GitHub
-<a href="/joomla-module-workflow-article.html" class="btn">View Packager Documentation</a>
-{{ content }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title | default: site.github.repository_name }}</title>
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <header>
+      <h1>{{ site.title | default: site.github.repository_name }}</h1>
+      <p>{{ site.description | default: site.github.project_tagline }}</p>
+      <a href="/joomla-module-workflow-article.html" class="btn">View Packager Documentation</a>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      {% if site.show_downloads %}
+        <ul>
+          <li><a href="{{ site.github.zip_url }}">Download as .zip</a></li>
+          <li><a href="{{ site.github.tar_url }}">Download as .tar.gz</a></li>
+        </ul>
+      {% endif %}
+      <p><a href="{{ site.github.repository_url }}">View on GitHub</a></p>
+    </footer>
+  </body>
+</html>
