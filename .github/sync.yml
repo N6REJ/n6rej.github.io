@@ -1,0 +1,33 @@
+ group:
+
+  # Packages go here
+  - files:
+      - source: .github/workflows/package-packager.yml
+        dest:  .github/workflows/package-packager.yml
+    repos: |
+     # N6REJ/my_sample_megapack
+
+
+  # All plugins go here
+  - files:
+      - source: .github/workflows/plugin-packager.yml
+        dest:  .github/workflows/plugin-packager.yml
+
+    repos: |
+       # N6REJ/plg_my_plugin
+
+  # Components go here
+  - files:
+      - source: .github/workflows/component-packager.yml
+        dest:  .github/workflows/component-packager.yml
+    repos: |
+       # N6REJ/com_my_component
+
+    # Things for modules ONLY!
+  - files:
+      - source: .github/workflows/module-packager.yml
+        dest:  .github/workflows/module-packager.yml
+    repos: |
+        N6REJ/mod_bears_pricing_tables
+        N6REJ/mod_julianclock
+        N6REJ/module-bearsclock
