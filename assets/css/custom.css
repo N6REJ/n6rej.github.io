@@ -1,0 +1,18 @@
+button, input[type="button"], input[type="submit"] {
+  all: unset;
+  display: inline-block;
+  padding: initial;
+  margin: initial;
+  border: initial;
+  background: initial;
+  color: initial;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+button, input[type="button"], input[type="submit"] {
+  /* Restore basic button look */
+  -webkit-appearance: button;
+  appearance: button;
+}
