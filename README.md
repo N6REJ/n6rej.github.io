@@ -1,4 +1,6 @@
-<img src="https://github.com/user-attachments/assets/24652bdf-5b49-4f39-b0b1-6451f8de07b9" width="200" height="auto" />
+<div style="text-align:center;">
+  <img src="https://github.com/user-attachments/assets/24652bdf-5b49-4f39-b0b1-6451f8de07b9" width="200" height="auto" />
+</div>
 
 Hi, I'm Bear known as N6REJ in the ham radio circles. I started with github due to my love of Joomla! & working with the Joomla bug squad in hammering out issues within the code. Through the years I've started using github for all my coding projects now & have come to enjoy it. I work alot with
 [![](http://n6rej.github.io/images/AMGLogo2019-justlogo500.jpg)](https://am-graphix.com)
