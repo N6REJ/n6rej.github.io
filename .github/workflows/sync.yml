@@ -1,4 +1,5 @@
  name: Sync Files
+
 on:
   push:
     branches:
