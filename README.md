@@ -8,9 +8,9 @@ Hi, I'm Bear known as N6REJ in the ham radio circles. I started with github due 
 
 ### Software, tools & projects I enjoy:
 
-For those that create Joomla! modules I've created a set of automatic packagers. You can see what it creates here
+For those that create Joomla! extensions I've created a set of automatic packagers. You can see what it creates here
 
-![](https://github.com/N6REJ/mod_bears_pricing_tables/releases)
+[See example releases here](https://github.com/N6REJ/mod_bears_pricing_tables/releases)
 
 All that is required for you to use it is to deposit the packager from  <a href="https://github.com/N6REJ/n6rej.github.io/tree/master/.github/workflows">List of packagers</a> into your `.github/workflows` folder and change just a few lines of code at the top of the file, which is well notated.
 
@@ -23,8 +23,6 @@ For a full guide to all Joomla extension packager workflows (modules, plugins, c
 - Best practices and troubleshooting
 
 I hope this helps others. I'm the creator so ofc I find it fantastic. Contact me if you have any questions or issues.
-
-There are a pair of files.  One in .github/workflows/sync and another in .github/sync.yml  These will automatically copy your -packager.yml to whatever repo is listed.  This is simply to keep your packager(s) in sync.  Use the N6REJ/mod_XXX in sync. as the example for others
 
 ![joomla](https://cdn.joomla.org/images/Joomla_logo.png) ![phpstorm](http://n6rej.github.io/images/phpstorm.png) ![bootstrap](http://n6rej.github.io/images/bootstrap.png) ![browser-stack](http://n6rej.github.io/images/browser-stack.png) ![bearsampp](https://github.com/N6REJ/n6rej.github.io/assets/1850089/a86be0cd-a463-4107-9ec3-a6b8756776b1)
 
