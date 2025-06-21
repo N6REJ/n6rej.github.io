@@ -1,0 +1,136 @@
+---
+layout: default
+title: Workflow detailed docs
+description: Detailed documentation for the Joomla module workflow
+nav_order: 5
+---
+
+<!-- Embedded content from joomla-module-workflow-article.html -->
+
+<h1>Joomla Extension Packager Workflows Documentation</h1>
+
+<p>This page provides a comprehensive guide to the automated packaging workflows for Joomla modules, plugins, components, and multi-extension packages using GitHub Actions. Each workflow is tailored for its extension type, and the package workflow can bundle any combination of modules, plugins, and components.</p>
+
+<h2>Table of Contents</h2>
+<ul>
+  <li><a href="#workflows">Available Workflows & Quick Links</a></li>
+  <li><a href="#usage">How to Use</a></li>
+  <li><a href="#examples">Examples</a></li>
+  <li><a href="#best-practices">Tips and Best Practices</a></li>
+  <li><a href="#faq">FAQ</a></li>
+</ul>
+
+<h2 id="workflows">Available Workflows & Quick Links</h2>
+<ul>
+  <li><b>Module Packaging:</b> <a href="https://github.com/N6REJ/n6rej.github.io/blob/master/.github/workflows/module-packager.yml" target="_blank">module-packager.yml</a></li>
+  <li><b>Plugin Packaging:</b> <a href="https://github.com/N6REJ/n6rej.github.io/blob/master/.github/workflows/plugin-packager.yml" target="_blank">plugin-packager.yml</a></li>
+  <li><b>Component Packaging:</b> <a href="https://github.com/N6REJ/n6rej.github.io/blob/master/.github/workflows/component-packager.yml" target="_blank">component-packager.yml</a></li>
+  <li><b>Package (Multi-Extension):</b> <a href="https://github.com/N6REJ/n6rej.github.io/blob/master/.github/workflows/package-packager.yml" target="_blank">package-packager.yml</a></li>
+</ul>
+
+<h2 id="usage">How to Use</h2>
+<ol>
+  <li>Copy the desired <code>.yml</code> workflow file from above into your repository's <code>.github/workflows/</code> directory.</li>
+  <li>Edit the <code>env:</code> section at the top of the workflow file to match your extension's details.</li>
+  <li>Push your changes or trigger the workflow manually from the GitHub Actions tab.</li>
+  <li>Check the <a href="https://github.com/N6REJ/mod_bears_pricing_tables/releases" target="_blank">Releases, for example</a> section for your packaged extension ZIP and changelog.</li>
+</ol>
+
+<h2 id="examples">Examples</h2>
+<h3>Sample Workflow YAML</h3>
+<pre><code>
+  name: Package and Release Bears AI Chatbot Module
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  workflow_dispatch:
+
+# =============================
+# Universal Joomla Module Packaging Workflow
+# To use for your own module, change the variables below:
+#   AUTHOR: Your name or handle
+#   REPO:   Your repo path (org/repo)
+#   MODULE_NAME: Module folder and file prefix (e.g. mod_example)
+#   MODULE_XML:  Main XML file (e.g. mod_example.xml)
+#   COPYRIGHT_HOLDER: Copyright string (e.g. YourName (YourHandle))
+#   COPYRIGHT_START_YEAR: Copyright start year (e.g. 2025)
+#   PHP_VERSION: PHP version to use (e.g. 8.1)
+#   MODULE_TOKEN: Your token secret name (default: GH_PAT)
+#   CHANGELOG_FILE: Changelog filename (default: CHANGELOG.md)
+#   HELPER_FILE: Helper PHP file (default: helper.php)
+#   LICENSE_FILE: License file (default: License.txt)
+#   FAVICON_FILE: Favicon file (default: favicon.ico, can be blank to skip)
+#   UPDATES_XML_FILE: Updates XML file (default: updates.xml)
+#   CSS_DIR: CSS directory (default: css)
+#   JS_DIR: JS directory (default: js)
+#   TMPL_DIR: Template directory (default: tmpl)
+#   LANGUAGE_DIR: Language directory (default: language)
+#   PACKAGE_DIR: Package output directory (default: package)
+#   DIR_TREE_FILE: Directory tree output file, used as an additional file in release listing.  (default: directory-structure.txt, can be blank to skip)
+# =============================
+
+env:
+  AUTHOR: "N6REJ"
+  REPO: "N6REJ/mod_bears_aichatbot"
+  MODULE_NAME: "mod_bears_aichatbot"
+  MODULE_XML: "mod_bears_aichatbot.xml"
+  COPYRIGHT_HOLDER: "BearLeeAble (N6REJ)"
+  COPYRIGHT_START_YEAR: "2025"
+  PHP_VERSION: "8.1"
+  MODULE_TOKEN: "GH_PAT"  # Set your token secret name here (default: GH_PAT)
+  CHANGELOG_FILE: "CHANGELOG.md"
+  HELPER_FILE: "helper.php"
+  LICENSE_FILE: "License.txt"
+  FAVICON_FILE: "favicon.ico"
+  UPDATES_XML_FILE: "updates.xml"
+  CSS_DIR: "css"
+  JS_DIR: "js"
+  TMPL_DIR: "tmpl"
+  LANGUAGE_DIR: "language"
+  PACKAGE_DIR: "package"
+  DIR_TREE_FILE: "directory-structure.txt"
+
+</code></pre>
+
+<h3>Example Directory Structure</h3>
+<pre><code>my-joomla-module/
+├── .github/
+│   └── workflows/
+│       └── module-packager.yml
+├── mod_example.php
+├── mod_example.xml
+├── helper.php
+├── tmpl/
+│   └── default.php
+├── language/
+│   └── en-GB.mod_example.ini
+└── ...
+</code></pre>
+
+<h3>Sample Release Result</h3>
+<ul>
+  <li>ZIP file: <code>mod_example-2025.06.13.1.zip</code></li>
+  <li>Changelog: <code>CHANGELOG.md</code></li>
+  <li>Release notes auto-generated from commit messages</li>
+</ul>
+
+<h2 id="best-practices">Tips and Best Practices</h2>
+<ul>
+  <li>Use clear, conventional commit messages for changelog generation.</li>
+  <li>Keep your file and directory names consistent with the variables in your workflow.</li>
+  <li>Review the workflow logs for troubleshooting if a build fails.</li>
+  <li>Use the <b>package</b> workflow to bundle multiple extension types into a single ZIP and release.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<ul>
+  <li><b>Q: Can I use more than one packager workflow?</b><br>A: Yes! Each workflow (module, plugin, component, package) can be used independently or together. The <b>package</b> workflow is for multi-extension releases.</li>
+  <li><b>Q: What if I only want to package a module?</b><br>A: Use only the <a href="https://github.com/N6REJ/n6rej.github.io/blob/master/.github/workflows/module-packager.yml" target="_blank">module-packager.yml</a> workflow.</li>
+  <li><b>Q: Where do I find my packaged ZIP?</b><br>A: In the <a href="https://github.com/N6REJ/mod_bears_pricing_tables/releases" target="_blank"><b>Releases, for example</b></a> section of your repository after the workflow completes.</li>
+</ul>
+
+<hr>
+<p>For more details, see the <a href="https://github.com/N6REJ/n6rej.github.io/blob/master/README.md">project README</a> or <a href="https://github.com/N6REJ/n6rej.github.io">view on GitHub</a>.</p>
