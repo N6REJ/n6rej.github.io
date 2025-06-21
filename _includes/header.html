@@ -1,12 +1,35 @@
-<header>
-  <h1><a href="/">{{ site.title }}</a></h1>
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <!-- New nav buttons -->
-      <li><a href="/button1">Button 1</a></li>
-      <li><a href="/button2">Button 2</a></li>
-    </ul>
-  </nav>
+<header class="site-header">
+  <div class="container">
+    <h1><a href="/">{{ site.title }}</a></h1>
+    <nav>
+      <ul class="navbar-flex">
+        <li><a href="/">Home</a></li>
+        <li><a href="http://N6REJ.github.io">View on Github</a></li>
+        <li><a href="http://hallhome.us">My Website</a></li>
+        <li><a href="/button2">Button 2</a></li>
+      </ul>
+    </nav>
+  </div>
+  <style>
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .navbar-flex {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .navbar-flex li {
+      margin: 0 0.5rem;
+    }
+    .navbar-flex a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+    }
+  </style>
 </header>
