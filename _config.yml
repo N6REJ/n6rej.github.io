@@ -1,18 +1,3 @@
-title: "Bear's Git page"
-description: "Joomal Packager Documentation"
-theme: "just-the-docs"
-
-# Optional: Just the Docs configuration
-# See https://just-the-docs.com/docs/configuration/
-color_scheme: light
-logo: 
-# url: 
-# favicon_ico: 
-aux_links:
-  "Detailed Packager Documentation": https://hallhome.us/software/packager-documentation
-  "View on github": http://github.n6rej.io
-  "Module Packager Workflow": /docs/examples/module-packager.md
-  "Plugin Packager Workflow": /docs/examples/plugin-packager.md
-  "Package Packager Workflow": /docs/examples/package-packager.md
-  "Component Packager Workflow": /docs/examples/component-packager.md
-  "Workflow detailed docs": /docs/examples/workflow-detailed-docs.md
+theme: jekyll-theme-hacker
+title: [Bear's Git page]
+description: [Joomal Packager Documentation]
