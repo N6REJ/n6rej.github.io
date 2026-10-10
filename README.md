@@ -17,6 +17,8 @@
 <li><a href="https://extensions.joomla.org/extension/bears-clock/">Bears Clock</a> – A live JavaScript/PHP clock that supports timezone-aware display using PHP’s advanced date functions.</li>
 <li><a href="https://extensions.joomla.org/extension/bears-julian-clock/">Bears Julian Clock</a> – A Julian-format live clock with up to 10-digit decimal display, based on JavaScript and PHP.</li>
 <li><a href="https://magazine.joomla.org/all-issues/september-2022/bearsampp-portable-development-stack?highlight=WzJd">Bearsampp</a> – A portable WAMP stack tailored for Joomla developers, supporting multiple PHP versions and databases.</li>
+<li><a href="https://github.com/Bearsampp/mod_bearsampp_stats">Bearsampp Stats</a> – A Joomla 5/6 site module that displays live GitHub statistics for any repository as a single article or a responsive card grid.</li>
+<li><a href="https://github.com/Bearsampp/mod_bearsamppai">Bearsampp AI</a> – A Joomla site module adding a knowledge-base-grounded AI chat widget plus articles, forum, and FAQ blocks.</li>
 </ul>
 </section>
 <section>
